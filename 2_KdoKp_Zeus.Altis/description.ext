@@ -1,0 +1,29 @@
+
+class Header
+	{
+		gameType =  Coop;	// Game type
+		minPlayers =  1;	// minimum number of players the mission supports
+		maxPlayers = 21;	// maximum number of players the mission supports
+	};
+
+class cfgFunctions
+	{
+		#include "W_Teleporter\CfgFunctions.hpp"
+	};
+
+author				= "Arkana";
+onLoadName			= "2. KdoKp - Zeus";
+onLoadMission		= "Version: 24.09.2023";
+overviewText		= "Version: 24.09.2023";
+overviewTextLocked	= "Version: 24.09.2023";
+overviewPicture		= "Ladebild.jpg";
+loadScreen			= "Ladebild.jpg";
+respawn = BASE;
+respawnButton = 1;
+respawnDelay = 3;
+respawnDialog = 1;
+disabledAI = 1;
+enableDebugConsole = 1;
+saving = 0;
+
+#include "W_Teleporter\dialog.hpp"
