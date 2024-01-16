@@ -1,0 +1,1 @@
+for "_i" from 1 to 2 do {player addItemToVest "BWA3_200Rnd_556x45";};
