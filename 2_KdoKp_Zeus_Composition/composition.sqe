@@ -1,5 +1,5 @@
 version=54;
-center[]={3104.0347,0.5485605,12556.024};
+center[]={3103.7776,0.5485605,12555.909};
 class items
 {
 	items=110;
@@ -15,216 +15,7 @@ class items
 				dataType="Object";
 				class PositionInfo
 				{
-					position[]={-3.2805176,1.7633239,1.5419922};
-					angles[]={0,2.5972042,-0};
-				};
-				side="West";
-				flags=7;
-				class Attributes
-				{
-					rank="SERGEANT";
-					init="call{[this, this] call ace_common_fnc_claim; this setUnitPos ""UP""; this disableAI ""MOVE""; this disableAI ""FSM"";}";
-					class Inventory
-					{
-						class handgun
-						{
-							name="BWA3_P8";
-							firemode="BWA3_P8:Single";
-							class primaryMuzzleMag
-							{
-								name="BWA3_15Rnd_9x19_P8";
-								ammoLeft=15;
-							};
-						};
-						class uniform
-						{
-							typeName="BWA3_Uniform_Fleck";
-							isBackpack=0;
-						};
-						class vest
-						{
-							typeName="BWA3_Vest_JPC_Leader_Fleck";
-							isBackpack=0;
-							class MagazineCargo
-							{
-								items=1;
-								class Item0
-								{
-									name="BWA3_15Rnd_9x19_P8";
-									count=5;
-									ammoLeft=15;
-								};
-							};
-						};
-						headgear="H_Cap_blk";
-					};
-				};
-				id=85;
-				type="B_Soldier_F";
-				atlOffset=2.3841858e-007;
-				class CustomAttributes
-				{
-					class Attribute0
-					{
-						property="allowDamage";
-						expression="_this allowdamage _value;";
-						class Value
-						{
-							class data
-							{
-								singleType="BOOL";
-								value=0;
-							};
-						};
-					};
-					class Attribute1
-					{
-						property="ENH_AmbientAnimations";
-						expression="      if !(_value # 0 isEqualTo '') then      {        _value params ['_animSet', '_anims', '_canExit', '_attach'];                _this setVariable ['ENH_ambientAnimations_anims', _anims];        _this disableAI 'ANIM';        if (_attach && !is3DEN) then        {          private _logic = group _this createUnit ['Logic', getPosATL _this, [], 0, 'NONE'];          _this setVariable ['ENH_ambientAnimations_logic', _logic];          [_this, _logic] call BIS_fnc_attachToRelative;        };                ENH_fnc_ambientAnimations_play =        {          params ['_unit'];          private _anim = selectRandom (_unit getVariable ['ENH_ambientAnimations_anims', []]);          [_unit, _anim] remoteExec ['switchMove', 0];        };                ENH_fnc_ambientAnimations_exit =        {          params ['_unit'];          if !(_unit getVariable ['ENH_ambientAnimations_exit', true]) exitWith {false};          _unit setVariable ['ENH_ambientAnimations_exit', true];          detach _unit;          deleteVehicle (_unit getVariable ['ENH_ambientAnimations_logic', objNull]);          if (alive _unit) then          {            [_unit, ''] remoteExec ['switchMove', 0];            _unit enableAI 'ANIM';          };          _unit removeEventHandler ['Killed', _unit getVariable ['ENH_EHKilled',-1]];          _unit removeEventHandler ['Dammaged', _unit getVariable ['ENH_EHDammaged',-1]];          _unit removeEventHandler ['AnimDone', _unit getVariable ['ENH_EHAnimDone',-1]];        };                private _EHAnimDone = _this addEventHandler ['AnimDone',          {            params ['_unit'];            if (alive _unit) then            {              _unit call ENH_fnc_ambientAnimations_play;            }            else            {              _unit call ENH_fnc_ambientAnimations_exit;            };          }        ];        _this setVariable ['ENH_EHAnimDone', _EHAnimDone];                if (_canExit && !is3DEN) then        {          private _EHKilled = _this addEventHandler ['Killed',          {            (_this select 0) call ENH_fnc_ambientAnimations_exit;          }];          _this setVariable ['ENH_EHKilled', _EHKilled];          private _EHDammaged = _this addEventHandler ['Dammaged',          {            (_this select 0) call ENH_fnc_ambientAnimations_exit;          }];          _this setVariable ['ENH_EHDammaged', _EHDammaged];          _this spawn          {            scriptName 'ENH_Attribute_AmbientAnimations';            params ['_unit'];            waitUntil            {              sleep 1; (_unit getVariable ['ENH_ambientAnimations_exit', false]) || {behaviour _unit == 'COMBAT'}            };            _unit call ENH_fnc_ambientAnimations_exit;          };        };        _this call ENH_fnc_ambientAnimations_play;      };";
-						class Value
-						{
-							class data
-							{
-								singleType="ARRAY";
-								class value
-								{
-									items=4;
-									class Item0
-									{
-										class data
-										{
-											singleType="STRING";
-											value="STAND_U2";
-										};
-									};
-									class Item1
-									{
-										class data
-										{
-											singleType="ARRAY";
-											class value
-											{
-												items=4;
-												class Item0
-												{
-													class data
-													{
-														singleType="STRING";
-														value="hubstandingub_idle1";
-													};
-												};
-												class Item1
-												{
-													class data
-													{
-														singleType="STRING";
-														value="hubstandingub_idle2";
-													};
-												};
-												class Item2
-												{
-													class data
-													{
-														singleType="STRING";
-														value="hubstandingub_idle3";
-													};
-												};
-												class Item3
-												{
-													class data
-													{
-														singleType="STRING";
-														value="hubstandingub_move1";
-													};
-												};
-											};
-										};
-									};
-									class Item2
-									{
-										class data
-										{
-											singleType="BOOL";
-											value=0;
-										};
-									};
-									class Item3
-									{
-										class data
-										{
-											singleType="BOOL";
-											value=1;
-										};
-									};
-								};
-							};
-						};
-					};
-					class Attribute2
-					{
-						property="speaker";
-						expression="_this setspeaker _value;";
-						class Value
-						{
-							class data
-							{
-								singleType="STRING";
-								value="Male02ENG";
-							};
-						};
-					};
-					class Attribute3
-					{
-						property="pitch";
-						expression="_this setpitch _value;";
-						class Value
-						{
-							class data
-							{
-								singleType="SCALAR";
-								value=1.02;
-							};
-						};
-					};
-					class Attribute4
-					{
-						property="face";
-						expression="_this setface _value;";
-						class Value
-						{
-							class data
-							{
-								singleType="STRING";
-								value="WhiteHead_04";
-							};
-						};
-					};
-					nAttributes=5;
-				};
-			};
-		};
-		class Attributes
-		{
-			combatMode="BLUE";
-			behaviour="CARELESS";
-			dynamicSimulation=1;
-		};
-		id=84;
-		atlOffset=2.3841858e-007;
-	};
-	class Item1
-	{
-		dataType="Group";
-		side="West";
-		class Entities
-		{
-			items=1;
-			class Item0
-			{
-				dataType="Object";
-				class PositionInfo
-				{
-					position[]={5.1154785,1.7633237,-1.5751953};
+					position[]={5.3725586,1.7633237,-1.4599609};
 					angles[]={-0,4.6473141,0};
 				};
 				side="West";
@@ -287,7 +78,7 @@ class items
 		};
 		id=91;
 	};
-	class Item2
+	class Item1
 	{
 		dataType="Group";
 		side="West";
@@ -299,7 +90,7 @@ class items
 				dataType="Object";
 				class PositionInfo
 				{
-					position[]={0.9753418,1.7633249,2.3964844};
+					position[]={1.2324219,1.7633249,2.5117188};
 					angles[]={0,0.98213112,-0};
 				};
 				side="West";
@@ -361,7 +152,7 @@ class items
 				dataType="Object";
 				class PositionInfo
 				{
-					position[]={1.3920898,1.7633249,1.7675781};
+					position[]={1.6491699,1.7633249,1.8828125};
 					angles[]={0,0.98213112,-0};
 				};
 				side="West";
@@ -436,7 +227,7 @@ class items
 				dataType="Object";
 				class PositionInfo
 				{
-					position[]={2.2229004,1.7633249,0.52441406};
+					position[]={2.4799805,1.7633249,0.63964844};
 					angles[]={0,0.98213112,-0};
 				};
 				side="West";
@@ -498,7 +289,7 @@ class items
 				dataType="Object";
 				class PositionInfo
 				{
-					position[]={1.8063965,1.7633249,1.1513672};
+					position[]={2.0634766,1.7633249,1.2666016};
 					angles[]={0,0.98213112,-0};
 				};
 				side="West";
@@ -566,7 +357,7 @@ class items
 		id=93;
 		atlOffset=1.1920929e-006;
 	};
-	class Item3
+	class Item2
 	{
 		dataType="Group";
 		side="West";
@@ -578,7 +369,7 @@ class items
 				dataType="Object";
 				class PositionInfo
 				{
-					position[]={0.35107422,1.7633249,1.9736328};
+					position[]={0.6081543,1.7633249,2.0888672};
 					angles[]={0,0.98213112,-0};
 				};
 				side="West";
@@ -640,7 +431,7 @@ class items
 				dataType="Object";
 				class PositionInfo
 				{
-					position[]={0.76757813,1.7633249,1.3544922};
+					position[]={1.0246582,1.7633249,1.4697266};
 					angles[]={0,0.98213112,-0};
 				};
 				side="West";
@@ -715,7 +506,7 @@ class items
 				dataType="Object";
 				class PositionInfo
 				{
-					position[]={1.1843262,1.7633249,0.72753906};
+					position[]={1.4414063,1.7633249,0.84277344};
 					angles[]={0,0.98213112,-0};
 				};
 				side="West";
@@ -777,7 +568,7 @@ class items
 				dataType="Object";
 				class PositionInfo
 				{
-					position[]={1.6022949,1.7633249,0.10449219};
+					position[]={1.859375,1.7633249,0.21972656};
 					angles[]={0,0.98213112,-0};
 				};
 				side="West";
@@ -845,7 +636,7 @@ class items
 		id=98;
 		atlOffset=1.1920929e-006;
 	};
-	class Item4
+	class Item3
 	{
 		dataType="Group";
 		side="West";
@@ -857,7 +648,7 @@ class items
 				dataType="Object";
 				class PositionInfo
 				{
-					position[]={-0.27172852,1.7633249,1.5625};
+					position[]={-0.014648438,1.7633249,1.6777344};
 					angles[]={0,0.98213112,-0};
 				};
 				side="West";
@@ -919,7 +710,7 @@ class items
 				dataType="Object";
 				class PositionInfo
 				{
-					position[]={0.14208984,1.7633249,0.93847656};
+					position[]={0.39916992,1.7633249,1.0537109};
 					angles[]={0,0.98213112,-0};
 				};
 				side="West";
@@ -994,7 +785,7 @@ class items
 				dataType="Object";
 				class PositionInfo
 				{
-					position[]={0.56079102,1.7633249,0.31933594};
+					position[]={0.81787109,1.7633249,0.43457031};
 					angles[]={0,0.98213112,-0};
 				};
 				side="West";
@@ -1056,7 +847,7 @@ class items
 				dataType="Object";
 				class PositionInfo
 				{
-					position[]={0.97607422,1.7633249,-0.30664063};
+					position[]={1.2331543,1.7633249,-0.19140625};
 					angles[]={0,0.98213112,-0};
 				};
 				side="West";
@@ -1124,7 +915,7 @@ class items
 		id=103;
 		atlOffset=1.1920929e-006;
 	};
-	class Item5
+	class Item4
 	{
 		dataType="Group";
 		side="West";
@@ -1136,7 +927,7 @@ class items
 				dataType="Object";
 				class PositionInfo
 				{
-					position[]={-0.89453125,1.7633249,1.1455078};
+					position[]={-0.63745117,1.7633249,1.2607422};
 					angles[]={0,0.98213112,-0};
 				};
 				side="West";
@@ -1198,7 +989,7 @@ class items
 				dataType="Object";
 				class PositionInfo
 				{
-					position[]={-0.47705078,1.7633249,0.51953125};
+					position[]={-0.2199707,1.7633249,0.63476563};
 					angles[]={0,0.98213112,-0};
 				};
 				side="West";
@@ -1273,7 +1064,7 @@ class items
 				dataType="Object";
 				class PositionInfo
 				{
-					position[]={-0.062255859,1.7633249,-0.1015625};
+					position[]={0.19482422,1.7633249,0.013671875};
 					angles[]={0,0.98213112,-0};
 				};
 				side="West";
@@ -1335,7 +1126,7 @@ class items
 				dataType="Object";
 				class PositionInfo
 				{
-					position[]={0.3503418,1.7633249,-0.72558594};
+					position[]={0.60742188,1.7633249,-0.61035156};
 					angles[]={0,0.98213112,-0};
 				};
 				side="West";
@@ -1403,7 +1194,7 @@ class items
 		id=108;
 		atlOffset=1.1920929e-006;
 	};
-	class Item6
+	class Item5
 	{
 		dataType="Group";
 		side="West";
@@ -1415,7 +1206,7 @@ class items
 				dataType="Object";
 				class PositionInfo
 				{
-					position[]={-1.517334,1.7633249,0.72753906};
+					position[]={-1.2602539,1.7633249,0.84277344};
 					angles[]={0,0.98213112,-0};
 				};
 				side="West";
@@ -1477,7 +1268,7 @@ class items
 				dataType="Object";
 				class PositionInfo
 				{
-					position[]={-1.1044922,1.7633249,0.10546875};
+					position[]={-0.84741211,1.7633249,0.22070313};
 					angles[]={0,0.98213112,-0};
 				};
 				side="West";
@@ -1545,7 +1336,7 @@ class items
 		id=113;
 		atlOffset=1.1920929e-006;
 	};
-	class Item7
+	class Item6
 	{
 		dataType="Group";
 		side="West";
@@ -1557,7 +1348,7 @@ class items
 				dataType="Object";
 				class PositionInfo
 				{
-					position[]={-0.68920898,1.7633249,-0.51660156};
+					position[]={-0.43212891,1.7633249,-0.40136719};
 					angles[]={0,0.98213112,-0};
 				};
 				side="West";
@@ -1620,7 +1411,7 @@ class items
 				dataType="Object";
 				class PositionInfo
 				{
-					position[]={-0.26831055,1.7633249,-1.1416016};
+					position[]={-0.011230469,1.7633249,-1.0263672};
 					angles[]={0,0.98213112,-0};
 				};
 				side="West";
@@ -1689,12 +1480,12 @@ class items
 		id=116;
 		atlOffset=1.1920929e-006;
 	};
-	class Item8
+	class Item7
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={-3.357666,2.6843328,2.453125};
+			position[]={-3.1005859,2.6843328,2.5683594};
 			angles[]={0,2.5529213,-0};
 		};
 		side="Empty";
@@ -1738,12 +1529,12 @@ class items
 			nAttributes=2;
 		};
 	};
-	class Item9
+	class Item8
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={1.7685547,2.4535084,-7.0058594};
+			position[]={2.0256348,2.4535084,-6.890625};
 			angles[]={0.00025737664,6.0046215,6.282783};
 		};
 		side="Empty";
@@ -1774,12 +1565,12 @@ class items
 			nAttributes=1;
 		};
 	};
-	class Item10
+	class Item9
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={-3.9355469,2.8038197,2.0234375};
+			position[]={-3.6784668,2.8038197,2.1386719};
 			angles[]={0,3.9442511,-0};
 		};
 		side="Empty";
@@ -1810,12 +1601,12 @@ class items
 			nAttributes=1;
 		};
 	};
-	class Item11
+	class Item10
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={-4.0979004,2.8043184,1.9169922};
+			position[]={-3.8408203,2.8043184,2.0322266};
 			angles[]={0,4.1237164,-0};
 		};
 		side="Empty";
@@ -1846,12 +1637,12 @@ class items
 			nAttributes=1;
 		};
 	};
-	class Item12
+	class Item11
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={-4.1550293,2.2049541,0.62890625};
+			position[]={-3.8979492,2.2049541,0.74414063};
 			angles[]={0,0.1256896,-0};
 		};
 		side="Empty";
@@ -1882,12 +1673,12 @@ class items
 			nAttributes=1;
 		};
 	};
-	class Item13
+	class Item12
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={-1.951416,2.6770258,1.3105469};
+			position[]={-1.6943359,2.6770258,1.4257813};
 			angles[]={0,2.5943093,-0};
 		};
 		side="Empty";
@@ -1917,12 +1708,12 @@ class items
 			nAttributes=1;
 		};
 	};
-	class Item14
+	class Item13
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={-1.1442871,3.0740547,2.9912109};
+			position[]={-0.88720703,3.0740547,3.1064453};
 			angles[]={0,2.4789507,-0};
 		};
 		side="Empty";
@@ -1952,12 +1743,12 @@ class items
 			nAttributes=1;
 		};
 	};
-	class Item15
+	class Item14
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={-1.0383301,3.0740547,2.8330078};
+			position[]={-0.78125,3.0740547,2.9482422};
 			angles[]={0,2.5799975,-0};
 		};
 		side="Empty";
@@ -1987,12 +1778,12 @@ class items
 			nAttributes=1;
 		};
 	};
-	class Item16
+	class Item15
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={-0.93969727,3.0740547,2.6816406};
+			position[]={-0.68261719,3.0740547,2.796875};
 			angles[]={0,2.5378571,-0};
 		};
 		side="Empty";
@@ -2022,12 +1813,12 @@ class items
 			nAttributes=1;
 		};
 	};
-	class Item17
+	class Item16
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={-0.95654297,2.6980457,2.6601563};
+			position[]={-0.69946289,2.6980457,2.7753906};
 			angles[]={0,2.0836434,-0};
 		};
 		side="Empty";
@@ -2057,12 +1848,12 @@ class items
 			nAttributes=1;
 		};
 	};
-	class Item18
+	class Item17
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={-1.4816895,3.0740547,3.4501953};
+			position[]={-1.2246094,3.0740547,3.5654297};
 			angles[]={0,1.1075915,-0};
 		};
 		side="Empty";
@@ -2092,12 +1883,12 @@ class items
 			nAttributes=1;
 		};
 	};
-	class Item19
+	class Item18
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={-1.5444336,2.3095026,3.5175781};
+			position[]={-1.2873535,2.3095026,3.6328125};
 			angles[]={0,4.1458998,-0};
 		};
 		side="Empty";
@@ -2128,12 +1919,12 @@ class items
 			nAttributes=1;
 		};
 	};
-	class Item20
+	class Item19
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={-1.3669434,2.3095026,3.2597656};
+			position[]={-1.1098633,2.3095026,3.375};
 			angles[]={0,5.2818756,-0};
 		};
 		side="Empty";
@@ -2164,12 +1955,12 @@ class items
 			nAttributes=1;
 		};
 	};
-	class Item21
+	class Item20
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={-1.1362305,2.689436,2.9638672};
+			position[]={-0.87915039,2.689436,3.0791016};
 			angles[]={0,4.3626614,-0};
 		};
 		side="Empty";
@@ -2199,12 +1990,12 @@ class items
 			nAttributes=1;
 		};
 	};
-	class Item22
+	class Item21
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={-1.885498,2.0459394,3.3574219};
+			position[]={-1.628418,2.0459394,3.4726563};
 			angles[]={-0,2.4215586,0};
 		};
 		side="Empty";
@@ -2235,12 +2026,12 @@ class items
 			nAttributes=1;
 		};
 	};
-	class Item23
+	class Item22
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={-3.9709473,1.9133388,0.28613281};
+			position[]={-3.7138672,1.9133388,0.40136719};
 			angles[]={0,0.78351706,-0};
 		};
 		side="Empty";
@@ -2284,12 +2075,12 @@ class items
 			nAttributes=2;
 		};
 	};
-	class Item24
+	class Item23
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={-0.16772461,2.536531,-7.7539063};
+			position[]={0.089355469,2.536531,-7.6386719};
 			angles[]={0,4.1290035,-0};
 		};
 		side="Empty";
@@ -2320,12 +2111,12 @@ class items
 			nAttributes=1;
 		};
 	};
-	class Item25
+	class Item24
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={-0.97290039,2.5013318,-6.4013672};
+			position[]={-0.71582031,2.5013318,-6.2861328};
 			angles[]={0,4.0716686,-0};
 		};
 		side="Empty";
@@ -2356,12 +2147,12 @@ class items
 			nAttributes=1;
 		};
 	};
-	class Item26
+	class Item25
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={3.796875,1.7530957,-6.4130859};
+			position[]={4.0539551,1.7530957,-6.2978516};
 			angles[]={0,5.6945133,-0};
 		};
 		side="Empty";
@@ -2404,12 +2195,12 @@ class items
 			nAttributes=2;
 		};
 	};
-	class Item27
+	class Item26
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={1.020752,2.2683706,-1.6162109};
+			position[]={1.277832,2.2683706,-1.5009766};
 			angles[]={0,5.628315,-0};
 		};
 		side="Empty";
@@ -2439,12 +2230,12 @@ class items
 			nAttributes=1;
 		};
 	};
-	class Item28
+	class Item27
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={0.37353516,2.2683706,-2.0800781};
+			position[]={0.63061523,2.2683706,-1.9648438};
 			angles[]={0,5.7074318,-0};
 		};
 		side="Empty";
@@ -2474,12 +2265,12 @@ class items
 			nAttributes=1;
 		};
 	};
-	class Item29
+	class Item28
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={-0.28637695,2.2683706,-2.4951172};
+			position[]={-0.029296875,2.2683706,-2.3798828};
 			angles[]={0,5.6994953,-0};
 		};
 		side="Empty";
@@ -2509,12 +2300,12 @@ class items
 			nAttributes=1;
 		};
 	};
-	class Item30
+	class Item29
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={1.6650391,2.2683706,-1.2011719};
+			position[]={1.9221191,2.2683706,-1.0859375};
 			angles[]={0,5.6994953,-0};
 		};
 		side="Empty";
@@ -2544,12 +2335,12 @@ class items
 			nAttributes=1;
 		};
 	};
-	class Item31
+	class Item30
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={1.8405762,2.2683706,-2.7910156};
+			position[]={2.0976563,2.2683706,-2.6757813};
 			angles[]={0,5.628315,-0};
 		};
 		side="Empty";
@@ -2579,12 +2370,12 @@ class items
 			nAttributes=1;
 		};
 	};
-	class Item32
+	class Item31
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={1.1821289,2.2683706,-3.2519531};
+			position[]={1.439209,2.2683706,-3.1367188};
 			angles[]={0,5.7074318,-0};
 		};
 		side="Empty";
@@ -2614,12 +2405,12 @@ class items
 			nAttributes=1;
 		};
 	};
-	class Item33
+	class Item32
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={0.52734375,2.2683706,-3.6767578};
+			position[]={0.78442383,2.2683706,-3.5615234};
 			angles[]={0,5.6994953,-0};
 		};
 		side="Empty";
@@ -2649,12 +2440,12 @@ class items
 			nAttributes=1;
 		};
 	};
-	class Item34
+	class Item33
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={2.4848633,2.2683706,-2.3730469};
+			position[]={2.7419434,2.2683706,-2.2578125};
 			angles[]={0,5.6994953,-0};
 		};
 		side="Empty";
@@ -2684,12 +2475,12 @@ class items
 			nAttributes=1;
 		};
 	};
-	class Item35
+	class Item34
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={2.5900879,2.2683706,-3.8837891};
+			position[]={2.847168,2.2683706,-3.7685547};
 			angles[]={0,5.628315,-0};
 		};
 		side="Empty";
@@ -2719,12 +2510,12 @@ class items
 			nAttributes=1;
 		};
 	};
-	class Item36
+	class Item35
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={1.9299316,2.2683706,-4.3476563};
+			position[]={2.1870117,2.2683706,-4.2324219};
 			angles[]={0,5.7074318,-0};
 		};
 		side="Empty";
@@ -2754,12 +2545,12 @@ class items
 			nAttributes=1;
 		};
 	};
-	class Item37
+	class Item36
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={1.2746582,2.2683706,-4.7695313};
+			position[]={1.5317383,2.2683706,-4.6542969};
 			angles[]={0,5.6994953,-0};
 		};
 		side="Empty";
@@ -2789,12 +2580,12 @@ class items
 			nAttributes=1;
 		};
 	};
-	class Item38
+	class Item37
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={3.2324219,2.2683706,-3.4658203};
+			position[]={3.489502,2.2683706,-3.3505859};
 			angles[]={0,5.6994953,-0};
 		};
 		side="Empty";
@@ -2824,12 +2615,12 @@ class items
 			nAttributes=1;
 		};
 	};
-	class Item39
+	class Item38
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={5.5021973,2.2683706,-4.3603516};
+			position[]={5.7592773,2.2683706,-4.2451172};
 			angles[]={0,2.0966563,-0};
 		};
 		side="Empty";
@@ -2859,12 +2650,12 @@ class items
 			nAttributes=1;
 		};
 	};
-	class Item40
+	class Item39
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={-2.5803223,2.1685591,0.96875};
+			position[]={-2.3232422,2.1685591,1.0839844};
 			angles[]={6.280004,5.69452,6.2810626};
 		};
 		side="Empty";
@@ -2895,12 +2686,12 @@ class items
 			nAttributes=1;
 		};
 	};
-	class Item41
+	class Item40
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={4.762207,2.1670861,-3.9189453};
+			position[]={5.0192871,2.1670861,-3.8037109};
 			angles[]={0,2.1802793,-0};
 		};
 		side="Empty";
@@ -2931,12 +2722,12 @@ class items
 			nAttributes=1;
 		};
 	};
-	class Item42
+	class Item41
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={-3.8181152,2.1622963,0.15039063};
+			position[]={-3.5610352,2.1622963,0.265625};
 			angles[]={6.2800059,5.6945171,6.2810626};
 		};
 		side="Empty";
@@ -2967,12 +2758,12 @@ class items
 			nAttributes=1;
 		};
 	};
-	class Item43
+	class Item42
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={-0.80932617,2.0379066,2.3203125};
+			position[]={-0.55224609,2.0379066,2.4355469};
 			angles[]={0,3.1333823,-0};
 		};
 		side="Empty";
@@ -3003,12 +2794,12 @@ class items
 			nAttributes=1;
 		};
 	};
-	class Item44
+	class Item43
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={-1.1887207,1.9419461,3.0683594};
+			position[]={-0.93164063,1.9419461,3.1835938};
 			angles[]={0,1.067789,-0};
 		};
 		side="Empty";
@@ -3039,12 +2830,12 @@ class items
 			nAttributes=1;
 		};
 	};
-	class Item45
+	class Item44
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={-1.0566406,1.9419461,2.8554688};
+			position[]={-0.79956055,1.9419461,2.9707031};
 			angles[]={0,1.312201,-0};
 		};
 		side="Empty";
@@ -3075,12 +2866,12 @@ class items
 			nAttributes=1;
 		};
 	};
-	class Item46
+	class Item45
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={4.8085938,2.7051802,-3.6689453};
+			position[]={5.0656738,2.7051802,-3.5537109};
 			angles[]={0,5.1466379,-0};
 		};
 		side="Empty";
@@ -3111,12 +2902,12 @@ class items
 			nAttributes=1;
 		};
 	};
-	class Item47
+	class Item46
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={-3.1652832,2.70259,0.33203125};
+			position[]={-2.9082031,2.70259,0.44726563};
 			angles[]={0,2.1463838,-0};
 		};
 		side="Empty";
@@ -3147,12 +2938,12 @@ class items
 			nAttributes=1;
 		};
 	};
-	class Item48
+	class Item47
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={-1.253418,3.0725508,-6.0664063};
+			position[]={-0.99633789,3.0725508,-5.9511719};
 			angles[]={0,1.0000883,-0};
 		};
 		side="Empty";
@@ -3236,12 +3027,12 @@ class items
 			nAttributes=3;
 		};
 	};
-	class Item49
+	class Item48
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={3.9250488,2.2906451,0.4296875};
+			position[]={4.1821289,2.2906451,0.54492188};
 			angles[]={0,5.5364017,-0};
 		};
 		side="Empty";
@@ -3271,12 +3062,12 @@ class items
 			nAttributes=1;
 		};
 	};
-	class Item50
+	class Item49
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={-0.28442383,2.3968811,3.765625};
+			position[]={-0.02734375,2.3968811,3.8808594};
 			angles[]={-0,2.5501006,0};
 		};
 		side="Empty";
@@ -3320,12 +3111,12 @@ class items
 			nAttributes=2;
 		};
 	};
-	class Item51
+	class Item50
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={4.3730469,2.582716,-4.0800781};
+			position[]={4.630127,2.582716,-3.9648438};
 			angles[]={0,1.5435652,-0};
 		};
 		side="Empty";
@@ -3355,12 +3146,12 @@ class items
 			nAttributes=1;
 		};
 	};
-	class Item52
+	class Item51
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={-4.4211426,2.1188478,1.8330078};
+			position[]={-4.1640625,2.1188478,1.9482422};
 			angles[]={0.015578968,4.802413,0.0077294637};
 		};
 		side="Empty";
@@ -3391,12 +3182,12 @@ class items
 			nAttributes=1;
 		};
 	};
-	class Item53
+	class Item52
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={-0.86352539,1.8805419,2.6328125};
+			position[]={-0.60644531,1.8805419,2.7480469};
 			angles[]={0,4.1237164,-0};
 		};
 		side="Empty";
@@ -3426,12 +3217,12 @@ class items
 			nAttributes=1;
 		};
 	};
-	class Item54
+	class Item53
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={-0.083251953,4.1185489,-2.1621094};
+			position[]={0.17382813,4.1185489,-2.046875};
 			angles[]={0,4.1237154,-0};
 		};
 		side="Empty";
@@ -3460,12 +3251,12 @@ class items
 			nAttributes=1;
 		};
 	};
-	class Item55
+	class Item54
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={-3.5930176,2.5827541,0.45214844};
+			position[]={-3.3359375,2.5827541,0.56738281};
 			angles[]={0,3.7929089,-0};
 		};
 		side="Empty";
@@ -3496,12 +3287,12 @@ class items
 			nAttributes=1;
 		};
 	};
-	class Item56
+	class Item55
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={-3.2939453,2.7288141,0.50683594};
+			position[]={-3.0368652,2.7288141,0.62207031};
 			angles[]={0,5.791585,-0};
 		};
 		side="Empty";
@@ -3532,12 +3323,12 @@ class items
 			nAttributes=1;
 		};
 	};
-	class Item57
+	class Item56
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={-3.46875,2.5068159,2.3564453};
+			position[]={-3.2116699,2.5068159,2.4716797};
 			angles[]={6.2819486,2.5764472,0.0018604015};
 		};
 		side="Empty";
@@ -3568,12 +3359,12 @@ class items
 			nAttributes=1;
 		};
 	};
-	class Item58
+	class Item57
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={-2.5461426,2.5808058,1.3730469};
+			position[]={-2.2890625,2.5808058,1.4882813};
 			angles[]={0,2.3611887,-0};
 		};
 		side="Empty";
@@ -3603,12 +3394,12 @@ class items
 			nAttributes=1;
 		};
 	};
-	class Item59
+	class Item58
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={-2.5732422,2.5809059,1.2998047};
+			position[]={-2.3161621,2.5809059,1.4150391};
 			angles[]={0,2.1352999,-0};
 		};
 		side="Empty";
@@ -3638,12 +3429,12 @@ class items
 			nAttributes=1;
 		};
 	};
-	class Item60
+	class Item59
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={-2.5600586,2.5986052,1.3369141};
+			position[]={-2.3029785,2.5986052,1.4521484};
 			angles[]={0,3.1617947,-0};
 		};
 		side="Empty";
@@ -3673,12 +3464,12 @@ class items
 			nAttributes=1;
 		};
 	};
-	class Item61
+	class Item60
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={-1.4802246,1.727018,3.4384766};
+			position[]={-1.2231445,1.727018,3.5537109};
 			angles[]={6.2810702,0.98212469,0.0031810317};
 		};
 		side="Empty";
@@ -3709,12 +3500,12 @@ class items
 			nAttributes=1;
 		};
 	};
-	class Item62
+	class Item61
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={-1.0507813,1.727018,2.8027344};
+			position[]={-0.79370117,1.727018,2.9179688};
 			angles[]={0.0021210532,0.98212528,6.2799954};
 		};
 		side="Empty";
@@ -3745,12 +3536,12 @@ class items
 			nAttributes=1;
 		};
 	};
-	class Item63
+	class Item62
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={-4.8969727,1.727018,1.5566406};
+			position[]={-4.6398926,1.727018,1.671875};
 			angles[]={6.2800026,5.6945171,6.2810597};
 		};
 		side="Empty";
@@ -3781,12 +3572,12 @@ class items
 			nAttributes=1;
 		};
 	};
-	class Item64
+	class Item63
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={-2.5134277,2.58288,0.76367188};
+			position[]={-2.2563477,2.58288,0.87890625};
 			angles[]={6.2800021,4.114151,6.2810569};
 		};
 		side="Empty";
@@ -3817,12 +3608,12 @@ class items
 			nAttributes=1;
 		};
 	};
-	class Item65
+	class Item64
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={1.0507813,2.2119942,4.5830078};
+			position[]={1.3078613,2.2119942,4.6982422};
 			angles[]={-0,4.1086006,0};
 		};
 		side="Empty";
@@ -3852,12 +3643,12 @@ class items
 			nAttributes=1;
 		};
 	};
-	class Item66
+	class Item65
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={-1.8642578,2.3433504,-4.9267578};
+			position[]={-1.6071777,2.3433504,-4.8115234};
 			angles[]={-0,2.5008724,0};
 		};
 		side="Empty";
@@ -3887,12 +3678,12 @@ class items
 			nAttributes=1;
 		};
 	};
-	class Item67
+	class Item66
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={3.5871582,2.3096695,0.77148438};
+			position[]={3.8442383,2.3096695,0.88671875};
 			angles[]={0,0.79591465,-0};
 		};
 		side="Empty";
@@ -3922,12 +3713,12 @@ class items
 			nAttributes=1;
 		};
 	};
-	class Item68
+	class Item67
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={5.0048828,2.5785236,-3.7460938};
+			position[]={5.2619629,2.5785236,-3.6308594};
 			angles[]={0,5.5648766,-0};
 		};
 		side="Empty";
@@ -3958,12 +3749,12 @@ class items
 			nAttributes=1;
 		};
 	};
-	class Item69
+	class Item68
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={-3.6750488,2.5739384,0.37304688};
+			position[]={-3.4179688,2.5739384,0.48828125};
 			angles[]={0,2.7693958,-0};
 		};
 		side="Empty";
@@ -3993,12 +3784,12 @@ class items
 			nAttributes=1;
 		};
 	};
-	class Item70
+	class Item69
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={4.9863281,2.6073685,-3.7978516};
+			position[]={5.2434082,2.6073685,-3.6826172};
 			angles[]={0,5.130168,-0};
 		};
 		side="Empty";
@@ -4029,12 +3820,12 @@ class items
 			nAttributes=1;
 		};
 	};
-	class Item71
+	class Item70
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={-3.6740723,2.6027832,0.36914063};
+			position[]={-3.4169922,2.6027832,0.484375};
 			angles[]={0,2.6943276,-0};
 		};
 		side="Empty";
@@ -4065,12 +3856,12 @@ class items
 			nAttributes=1;
 		};
 	};
-	class Item72
+	class Item71
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={4.3547363,2.5919313,-4.0546875};
+			position[]={4.6118164,2.5919313,-3.9394531};
 			angles[]={0,4.1237154,-0};
 		};
 		side="Empty";
@@ -4100,12 +3891,12 @@ class items
 			nAttributes=1;
 		};
 	};
-	class Item73
+	class Item72
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={-2.4245605,2.5779219,0.81152344};
+			position[]={-2.1674805,2.5779219,0.92675781};
 			angles[]={0,5.7489367,-0};
 		};
 		side="Empty";
@@ -4135,12 +3926,12 @@ class items
 			nAttributes=1;
 		};
 	};
-	class Item74
+	class Item73
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={-5.333252,1.9855834,1.1748047};
+			position[]={-5.0761719,1.9855834,1.2900391};
 			angles[]={0.0021210532,4.1237106,6.2799954};
 		};
 		side="Empty";
@@ -4171,12 +3962,12 @@ class items
 			nAttributes=1;
 		};
 	};
-	class Item75
+	class Item74
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={-5.333252,2.1021461,1.1748047};
+			position[]={-5.0761719,2.1021461,1.2900391};
 			angles[]={0.0031898513,3.7228491,6.2810798};
 		};
 		side="Empty";
@@ -4207,12 +3998,12 @@ class items
 			nAttributes=1;
 		};
 	};
-	class Item76
+	class Item75
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={-5.333252,2.2024307,1.1748047};
+			position[]={-5.0761719,2.2024307,1.2900391};
 			angles[]={6.2796254,0.36405236,0.0013613236};
 		};
 		side="Empty";
@@ -4243,12 +4034,12 @@ class items
 			nAttributes=1;
 		};
 	};
-	class Item77
+	class Item76
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={-3.9606934,2.248354,0.27734375};
+			position[]={-3.7036133,2.248354,0.39257813};
 			angles[]={0,2.0010278,-0};
 		};
 		side="Empty";
@@ -4279,12 +4070,12 @@ class items
 			nAttributes=1;
 		};
 	};
-	class Item78
+	class Item77
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={4.7651367,2.7423034,-4.0488281};
+			position[]={5.0222168,2.7423034,-3.9335938};
 			angles[]={-0,5.2481098,0};
 		};
 		side="Empty";
@@ -4314,12 +4105,12 @@ class items
 			nAttributes=1;
 		};
 	};
-	class Item79
+	class Item78
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={6.9614258,2.8050499,-3.4238281};
+			position[]={7.2185059,2.8050499,-3.3085938};
 			angles[]={-0,4.9091167,0};
 		};
 		side="Empty";
@@ -4350,12 +4141,12 @@ class items
 			nAttributes=1;
 		};
 	};
-	class Item80
+	class Item79
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={-5.8679199,2.1375542,0.32324219};
+			position[]={-5.6108398,2.1375542,0.43847656};
 			angles[]={0,2.6575518,-0};
 		};
 		side="Empty";
@@ -4369,12 +4160,12 @@ class items
 		type="Land_PortableGenerator_01_F";
 		atlOffset=2.3841858e-007;
 	};
-	class Item81
+	class Item80
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={-2.1928711,2.6350946,1.4667969};
+			position[]={-1.935791,2.6350946,1.5820313};
 			angles[]={0,2.6391919,-0};
 		};
 		side="Empty";
@@ -4404,12 +4195,12 @@ class items
 			nAttributes=1;
 		};
 	};
-	class Item82
+	class Item81
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={-3.8791504,2.2303486,2.1201172};
+			position[]={-3.6220703,2.2303486,2.2353516};
 			angles[]={0.0072800987,4.1238403,0.015800249};
 		};
 		side="Empty";
@@ -4440,12 +4231,12 @@ class items
 			nAttributes=1;
 		};
 	};
-	class Item83
+	class Item82
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={-3.072998,2.2303486,2.6679688};
+			position[]={-2.815918,2.2303486,2.7832031};
 			angles[]={0.0072800987,4.1238403,0.015800249};
 		};
 		side="Empty";
@@ -4476,12 +4267,12 @@ class items
 			nAttributes=1;
 		};
 	};
-	class Item84
+	class Item83
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={-1.1860352,1.6755,3.2851563};
+			position[]={-0.92895508,1.6755,3.4003906};
 			angles[]={0,4.1237154,-0};
 		};
 		side="Empty";
@@ -4510,12 +4301,12 @@ class items
 			nAttributes=1;
 		};
 	};
-	class Item85
+	class Item84
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={1.7722168,2.0295663,-7.0888672};
+			position[]={2.0292969,2.0295663,-6.9736328};
 			angles[]={0,3.6550665,-0};
 		};
 		side="Empty";
@@ -4560,12 +4351,12 @@ class items
 			nAttributes=2;
 		};
 	};
-	class Item86
+	class Item85
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={-3.0410156,2.0309105,0.74902344};
+			position[]={-2.7839355,2.0309105,0.86425781};
 			angles[]={0,0.97333425,-0};
 		};
 		side="Empty";
@@ -4597,12 +4388,12 @@ class items
 			nAttributes=1;
 		};
 	};
-	class Item87
+	class Item86
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={-4.9055176,3.1069427,1.578125};
+			position[]={-4.6484375,3.1069427,1.6933594};
 			angles[]={0,2.5732729,-0};
 		};
 		side="Empty";
@@ -4631,12 +4422,12 @@ class items
 			nAttributes=1;
 		};
 	};
-	class Item88
+	class Item87
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={-4.9055176,2.3514085,1.578125};
+			position[]={-4.6484375,2.3514085,1.6933594};
 			angles[]={0,2.6724665,-0};
 		};
 		side="Empty";
@@ -4665,12 +4456,12 @@ class items
 			nAttributes=1;
 		};
 	};
-	class Item89
+	class Item88
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={-4.9055176,1.9649595,1.578125};
+			position[]={-4.6484375,1.9649595,1.6933594};
 			angles[]={0,2.4887304,-0};
 		};
 		side="Empty";
@@ -4700,12 +4491,12 @@ class items
 			nAttributes=1;
 		};
 	};
-	class Item90
+	class Item89
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={-6.1318359,2.7675772,0.14648438};
+			position[]={-5.8747559,2.7675772,0.26171875};
 			angles[]={0,5.1709156,-0};
 		};
 		side="Empty";
@@ -4717,12 +4508,12 @@ class items
 		type="Land_TentLamp_01_standing_red_F";
 		atlOffset=0.7486639;
 	};
-	class Item91
+	class Item90
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={3.9682617,3.0774126,0.85351563};
+			position[]={4.2253418,3.0774126,0.96875};
 			angles[]={0,5.6945143,-0};
 		};
 		side="Empty";
@@ -4735,12 +4526,12 @@ class items
 		type="Land_TentLamp_01_standing_red_F";
 		atlOffset=4.7683716e-007;
 	};
-	class Item92
+	class Item91
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={-5.1772461,3.2730575,-2.4580078};
+			position[]={-4.920166,3.2730575,-2.3427734};
 			angles[]={0,4.1237068,0};
 		};
 		side="Empty";
@@ -4783,12 +4574,12 @@ class items
 			nAttributes=2;
 		};
 	};
-	class Item93
+	class Item92
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={1.8225098,2.7307658,-7.2089844};
+			position[]={2.0795898,2.7307658,-7.09375};
 			angles[]={0,2.8569753,-0};
 		};
 		side="Empty";
@@ -4818,26 +4609,12 @@ class items
 			nAttributes=1;
 		};
 	};
-	class Item94
+	class Item93
 	{
 		dataType="Logic";
 		class PositionInfo
 		{
-			position[]={3.965332,1.761593,-2.0244141};
-		};
-		name="headless";
-		isPlayer=1;
-		description="Headless Client@HC";
-		id=122;
-		type="HeadlessClient_F";
-		atlOffset=0.25015354;
-	};
-	class Item95
-	{
-		dataType="Logic";
-		class PositionInfo
-		{
-			position[]={5.1154785,1.7618848,-1.625};
+			position[]={5.3725586,1.7618848,-1.5097656};
 			angles[]={-0,4.6473169,0};
 		};
 		id=89;
@@ -4899,45 +4676,72 @@ class items
 			nAttributes=4;
 		};
 	};
+	class Item94
+	{
+		dataType="Logic";
+		class PositionInfo
+		{
+			position[]={4.2224121,1.761593,-1.9091797};
+		};
+		name="headless";
+		isPlayer=1;
+		description="Headless Client@HC";
+		id=122;
+		type="HeadlessClient_F";
+		atlOffset=0.25015354;
+	};
+	class Item95
+	{
+		dataType="Comment";
+		class PositionInfo
+		{
+			position[]={1.3078613,1.7618848,4.6982422};
+		};
+		title="Arsenal 1";
+		description="Der Zeus kann über das ACE-Selbstinteraktionsmenü das Arsenal aktivieren und deaktivieren. Standardmäßig ist kein Arsenal aktiviert. Falls du von Anfang an ein Arsenal haben möchtest, dann kopiere folgendes in die Init-Zeile des Objekts, welches als Arsenal fungieren soll: " \n "" \n "[this, true] call ace_arsenal_fnc_initBox;";
+		id=133;
+	};
 	class Item96
 	{
 		dataType="Comment";
 		class PositionInfo
 		{
-			position[]={1.965332,1.5114394,1.9755859};
+			position[]={-1.6071777,1.893241,-4.8115234};
 		};
-		title="Respawnpunkte (Markierungen auf der Karte!)";
-		description="An diesen Markierungen respawnen die Spieler der jeweiligen Fraktionen. Wenn du möchtest, das beispielsweise Spieler aus der OPFOR Fraktion an einem anderen Punkt respawnen, dann kannst du  die Markierung an den jeweiligen Punkt verschieben. Ohne jene funktioniert das Respawnsystem nicht. " \n "" \n "Wichtig! Du musst im Editor die Karte öffnen, um die Markierungen zu verschieben. Häufig werden nur die Objekte verschoben und die Markierungen vergessen, weil man diese nur auf der Karte auswählen kann." \n "" \n "https://community.bistudio.com/wiki/Arma_3:_Respawn" \n "" \n "BLUFOR > respawn_west " \n "OPFOR > respawn_east " \n "INDEPENDENT > respawn_guerrila " \n "CIVILIAN > respawn_civilian";
-		id=132;
+		title="Arsenal 2";
+		description="Der Zeus kann über das ACE-Selbstinteraktionsmenü das Arsenal aktivieren und deaktivieren. Standardmäßig ist kein Arsenal aktiviert. Falls du von Anfang an ein Arsenal haben möchtest, dann kopiere folgendes in die Init-Zeile des Objekts, welches als Arsenal fungieren soll: " \n "" \n "[this, true] call ace_arsenal_fnc_initBox;";
+		id=134;
 	};
 	class Item97
 	{
 		dataType="Comment";
 		class PositionInfo
 		{
-			position[]={1.0507813,1.7618848,4.5830078};
+			position[]={7.2185059,1.7614394,-3.3085938};
 		};
-		title="Arsenal 1";
-		description="Der Zeus kann über das ACE-Selbstinteraktionsmenü das Arsenal aktivieren und deaktivieren. Standardmäßig ist kein Arsenal aktiviert. Falls du von Anfang an ein Arsenal haben möchtest, dann kopiere folgendes in die Init-Zeile des Objekts, welches als Arsenal fungieren soll: " \n "" \n "[this, true] call ace_arsenal_fnc_initBox;";
-		id=133;
+		title="Bildschirm mit PowerPoint";
+		description="Dieser Bildschirm hat standardmäßig die PowerPoint-Präsentation der Grundausbildung geladen. Über das ACE-Interaktionsmenü kann jeder die Kapitel und Folien wechseln. Um diese zu entfernen, lösche einfach den gesamten Bildschirm oder den Inhalt der Init-Zeile des Bildschirms. Zusätzlich musst du noch im „Bilder“ Ordner den gesamten Ordner „PP“ löschen, um Speicherplatz einzusparen.";
+		id=138;
+		atlOffset=0.25;
 	};
 	class Item98
 	{
 		dataType="Comment";
 		class PositionInfo
 		{
-			position[]={-1.8642578,1.893241,-4.9267578};
+			position[]={4.2224121,1.7614394,-1.9091797};
 		};
-		title="Arsenal 2";
-		description="Der Zeus kann über das ACE-Selbstinteraktionsmenü das Arsenal aktivieren und deaktivieren. Standardmäßig ist kein Arsenal aktiviert. Falls du von Anfang an ein Arsenal haben möchtest, dann kopiere folgendes in die Init-Zeile des Objekts, welches als Arsenal fungieren soll: " \n "" \n "[this, true] call ace_arsenal_fnc_initBox;";
-		id=134;
+		title="Headless Client";
+		description="Der Headless Client übernimmt bei Bedarf einen Teil der KI-Berechnung auf dem Server, um eine bessere Performance zu ermöglichen. Standardmäßig verbindet kein Headless Client mit dem Server. Bei Fragen wende dich am besten an Arkana." \n "" \n "https://community.bistudio.com/wiki/Arma_3:_Headless_Client";
+		id=136;
+		atlOffset=0.25;
 	};
 	class Item99
 	{
 		dataType="Comment";
 		class PositionInfo
 		{
-			position[]={-2.5136719,2.5714393,0.76367188};
+			position[]={-2.2565918,2.5714393,0.87890625};
 			angles[]={6.2800021,0,6.2810569};
 		};
 		title="Loadouts";
@@ -4950,11 +4754,11 @@ class items
 		dataType="Comment";
 		class PositionInfo
 		{
-			position[]={3.965332,1.7614394,-2.0244141};
+			position[]={-0.027587891,1.7614394,3.8808594};
 		};
-		title="Headless Client";
-		description="Der Headless Client übernimmt bei Bedarf einen Teil der KI-Berechnung auf dem Server, um eine bessere Performance zu ermöglichen. Standardmäßig verbindet kein Headless Client mit dem Server. Bei Fragen wende dich am besten an Arkana." \n "" \n "https://community.bistudio.com/wiki/Arma_3:_Headless_Client";
-		id=136;
+		title="Müllkiste";
+		description="Mit dem ACE-Interaktionsmenü kann jeder den Inhalt der Kiste löschen. Sorgt dafür, dass nicht überall Ausrüstungsteile herumliegen und die Performance beeinträchtigen.";
+		id=140;
 		atlOffset=0.25;
 	};
 	class Item101
@@ -4962,31 +4766,30 @@ class items
 		dataType="Comment";
 		class PositionInfo
 		{
-			position[]={5.1152344,1.7614394,-1.625};
+			position[]={2.2224121,1.5114394,2.0908203};
 		};
-		title="Zeus";
-		description="Mit dem Zeus kannst du in Echtzeit die Mission bauen und dynamisch auf das Vorgehen der Spieler reagieren. In diesem Template kann der Slot zusätzlich über den Menüpunkt „Skripte“ die Loadouts und das Arsenal hinzufügen oder entfernen.";
-		id=137;
-		atlOffset=0.25;
+		title="Respawnpunkte (Markierungen auf der Karte!)";
+		description="An diesen Markierungen respawnen die Spieler der jeweiligen Fraktionen. Wenn du möchtest, das beispielsweise Spieler aus der OPFOR Fraktion an einem anderen Punkt respawnen, dann kannst du  die Markierung an den jeweiligen Punkt verschieben. Ohne jene funktioniert das Respawnsystem nicht. " \n "" \n "Wichtig! Du musst im Editor die Karte öffnen, um die Markierungen zu verschieben. Häufig werden nur die Objekte verschoben und die Markierungen vergessen, weil man diese nur auf der Karte auswählen kann." \n "" \n "https://community.bistudio.com/wiki/Arma_3:_Respawn" \n "" \n "BLUFOR > respawn_west " \n "OPFOR > respawn_east " \n "INDEPENDENT > respawn_guerrila " \n "CIVILIAN > respawn_civilian";
+		id=132;
 	};
 	class Item102
 	{
 		dataType="Comment";
 		class PositionInfo
 		{
-			position[]={6.9614258,1.7614394,-3.4238281};
+			position[]={-4.9206543,2.7214394,-2.3427734};
 		};
-		title="Bildschirm mit PowerPoint";
-		description="Dieser Bildschirm hat standardmäßig die PowerPoint-Präsentation der Grundausbildung geladen. Über das ACE-Interaktionsmenü kann jeder die Kapitel und Folien wechseln. Um diese zu entfernen, lösche einfach den gesamten Bildschirm oder den Inhalt der Init-Zeile des Bildschirms. Zusätzlich musst du noch im „Bilder“ Ordner den gesamten Ordner „PP“ löschen, um Speicherplatz einzusparen.";
-		id=138;
-		atlOffset=0.25;
+		title="Spectator und technischer Teleporter";
+		description="Über das ACE-Interaktionsmenü kann jeder entweder in den Zuschauermodus wechseln oder den technischen Teleporter verwenden. Falls du eine Funktion davon nicht möchtest, wie z.B. den Teleporter, dann lösche den jeweiligen Teil aus der Init-Zeile des Whiteboards.";
+		id=141;
+		atlOffset=0.95955467;
 	};
 	class Item103
 	{
 		dataType="Comment";
 		class PositionInfo
 		{
-			position[]={4.7653809,2.5744395,-4.0488281};
+			position[]={5.0224609,2.5744395,-3.9335938};
 		};
 		title="Steuerung der PowerPoint";
 		description="An dem Laptop kann jeder zusätzlich die PowerPoint-Präsentation steuern. Wenn du den Laptop entfernst, dann lösche am besten auch den Bildschirm gemäß der Anleitung im dazugehörigen Kommentar.";
@@ -4998,29 +4801,144 @@ class items
 		dataType="Comment";
 		class PositionInfo
 		{
-			position[]={-0.28466797,1.7614394,3.765625};
+			position[]={5.3723145,1.7614394,-1.5097656};
 		};
-		title="Müllkiste";
-		description="Mit dem ACE-Interaktionsmenü kann jeder den Inhalt der Kiste löschen. Sorgt dafür, dass nicht überall Ausrüstungsteile herumliegen und die Performance beeinträchtigen.";
-		id=140;
+		title="Zeus";
+		description="Mit dem Zeus kannst du in Echtzeit die Mission bauen und dynamisch auf das Vorgehen der Spieler reagieren. In diesem Template kann der Slot zusätzlich über den Menüpunkt „Skripte“ die Loadouts und das Arsenal hinzufügen oder entfernen.";
+		id=137;
 		atlOffset=0.25;
 	};
 	class Item105
 	{
-		dataType="Comment";
-		class PositionInfo
+		dataType="Group";
+		side="West";
+		class Entities
 		{
-			position[]={-5.1777344,2.7214394,-2.4580078};
+			items=1;
+			class Item0
+			{
+				dataType="Object";
+				class PositionInfo
+				{
+					position[]={-3.0236816,1.7628783,1.6572266};
+					angles[]={0,2.5972071,0};
+				};
+				side="West";
+				flags=3;
+				class Attributes
+				{
+					rank="SERGEANT";
+					init="[this, this] call ace_common_fnc_claim; this setUnitPos ""UP""; this disableAI ""MOVE""; this disableAI ""FSM""; [WaKa, ""BRIEFING"", ""FULL""] call BIS_fnc_AmbientAnim;";
+					name="WaKa";
+					class Inventory
+					{
+						class handgun
+						{
+							name="BWA3_P8";
+							firemode="BWA3_P8:Single";
+							class primaryMuzzleMag
+							{
+								name="BWA3_15Rnd_9x19_P8";
+								ammoLeft=15;
+							};
+						};
+						class uniform
+						{
+							typeName="BWA3_Uniform_Fleck";
+							isBackpack=0;
+						};
+						class vest
+						{
+							typeName="BWA3_Vest_JPC_Leader_Fleck";
+							isBackpack=0;
+							class MagazineCargo
+							{
+								items=1;
+								class Item0
+								{
+									name="BWA3_15Rnd_9x19_P8";
+									count=5;
+									ammoLeft=15;
+								};
+							};
+						};
+						headgear="H_Cap_blk";
+					};
+				};
+				id=85;
+				type="B_Soldier_F";
+				atlOffset=0.25;
+				class CustomAttributes
+				{
+					class Attribute0
+					{
+						property="allowDamage";
+						expression="_this allowdamage _value;";
+						class Value
+						{
+							class data
+							{
+								singleType="BOOL";
+								value=0;
+							};
+						};
+					};
+					class Attribute1
+					{
+						property="speaker";
+						expression="_this setspeaker _value;";
+						class Value
+						{
+							class data
+							{
+								singleType="STRING";
+								value="Male02ENG";
+							};
+						};
+					};
+					class Attribute2
+					{
+						property="pitch";
+						expression="_this setpitch _value;";
+						class Value
+						{
+							class data
+							{
+								singleType="SCALAR";
+								value=1.02;
+							};
+						};
+					};
+					class Attribute3
+					{
+						property="face";
+						expression="_this setface _value;";
+						class Value
+						{
+							class data
+							{
+								singleType="STRING";
+								value="WhiteHead_04";
+							};
+						};
+					};
+					nAttributes=4;
+				};
+			};
 		};
-		title="Spectator und technischer Teleporter";
-		description="Über das ACE-Interaktionsmenü kann jeder entweder in den Zuschauermodus wechseln oder den technischen Teleporter verwenden. Falls du eine Funktion davon nicht möchtest, wie z.B. den Teleporter, dann lösche den jeweiligen Teil aus der Init-Zeile des Whiteboards.";
-		id=141;
-		atlOffset=0.95955467;
+		class Attributes
+		{
+			combatMode="BLUE";
+			behaviour="CARELESS";
+			dynamicSimulation=1;
+		};
+		id=84;
+		atlOffset=0.25;
 	};
 	class Item106
 	{
 		dataType="Marker";
-		position[]={1.965332,1.5114394,1.9755859};
+		position[]={2.2224121,1.5114394,2.0908203};
 		name="respawn_civilian";
 		type="Empty";
 		id=142;
@@ -5028,7 +4946,7 @@ class items
 	class Item107
 	{
 		dataType="Marker";
-		position[]={1.965332,1.5114394,1.9755859};
+		position[]={2.2224121,1.5114394,2.0908203};
 		name="respawn_east";
 		type="Empty";
 		id=143;
@@ -5036,7 +4954,7 @@ class items
 	class Item108
 	{
 		dataType="Marker";
-		position[]={1.965332,1.5114394,1.9755859};
+		position[]={2.2224121,1.5114394,2.0908203};
 		name="respawn_guerrila";
 		type="Empty";
 		id=144;
@@ -5044,7 +4962,7 @@ class items
 	class Item109
 	{
 		dataType="Marker";
-		position[]={1.965332,1.5114394,1.9755859};
+		position[]={2.2224121,1.5114394,2.0908203};
 		name="respawn_west";
 		type="Empty";
 		id=145;

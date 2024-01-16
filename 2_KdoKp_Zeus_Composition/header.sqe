@@ -5,14 +5,11 @@ category="EdSubcat_Default";
 requiredAddons[]=
 {
 	"A3_Characters_F",
-	"bwa3_p8",
-	"bwa3_comp_ace",
-	"bwa3_uniforms",
-	"bwa3_vests",
 	"A3_Weapons_F",
+	"bwa3_uniforms",
 	"ace_explosives",
-	"real_uniform_unlock",
 	"bwa3_headgear",
+	"bwa3_comp_ace",
 	"ace_medical_treatment",
 	"kat_circulation",
 	"A3_Structures_F_EPB_Items_Military",
@@ -48,6 +45,7 @@ requiredAddons[]=
 	"A3_Props_F_Orange_Civilian_InfoBoards",
 	"A3_Structures_F_EPC_Civ_InfoBoards",
 	"A3_Modules_F_Curator_Curator",
-	"WBK_DyingAnimationsMod",
+	"bwa3_p8",
+	"bwa3_vests",
 	"A3_Ui_F"
 };
