@@ -10,5 +10,5 @@
 
 [ArsenalBox2, true] call ace_arsenal_fnc_initBox;
 
-_action = ["Zeus_RemoveArsenal","Arsenal entfernen","",{"Scripts\Zeus_RemoveArsenal.sqf" remoteExec ["execVM",2];},{true},{}, [0,0,0], 100] call ace_interact_menu_fnc_createAction;
+_action = ["Zeus_RemoveArsenal","Arsenal entfernen","",{"Scripts\Zeus_RemoveArsenal.sqf" remoteExec ["execVM",0,true];},{true},{}, [0,0,0], 100] call ace_interact_menu_fnc_createAction;
 [Zeus, 1, ["ACE_SelfActions", "Skripte"], _action] call ace_interact_menu_fnc_addActionToObject;

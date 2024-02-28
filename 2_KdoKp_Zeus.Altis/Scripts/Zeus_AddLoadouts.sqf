@@ -264,7 +264,7 @@ _action = ["Bw_IdZ_M_menu","Bw IdZ Multitarn","",{},{true},{}, [0,0,0], 100] cal
 			_action = ["Bw_IdZ_M_Spotter_Ghillie","Spotter Ghillie","",{_handle = execVM "Loadouts\Bw\Multitarn\Bw_IdZ_M_Spotter_Ghillie.sqf";},{true},{}, [0,0,0], 100] call ace_interact_menu_fnc_createAction; 
 			[Notepad, 0, ["ACE_MainActions", "Bw_IdZ_M_menu", "Bw_IdZ_M_support_menu"], _action] call ace_interact_menu_fnc_addActionToObject;
 
-_action = ["Zeus_RemoveLoadouts","Loadouts entfernen","",{"Scripts\Zeus_RemoveLoadouts.sqf" remoteExec ["execVM",2];},{true},{}, [0,0,0], 100] call ace_interact_menu_fnc_createAction;
+_action = ["Zeus_RemoveLoadouts","Loadouts entfernen","",{"Scripts\Zeus_RemoveLoadouts.sqf" remoteExec ["execVM",0,true];},{true},{}, [0,0,0], 100] call ace_interact_menu_fnc_createAction;
 [Zeus, 1, ["ACE_SelfActions", "Skripte"], _action] call ace_interact_menu_fnc_addActionToObject;
 
 
