@@ -1,3 +1,9 @@
+/* 
+1. Entfernt den Menüpunkt "Loadouts entfernen" beim Zeus.
+2. Entfernt die Loadouts am Notepad.
+3. Erstellt den Menüpunkt "Loadouts hinzufügen" beim Zeus.
+ */
+
 [Zeus, 1, ["ACE_SelfActions","Skripte","Zeus_RemoveLoadouts"]] call ace_interact_menu_fnc_removeActionFromObject;
 
 [Notepad, 0, ["ACE_MainActions", "Bw_IdZ_F_menu"]] call ace_interact_menu_fnc_removeActionFromObject;   
@@ -90,5 +96,5 @@
 		[Notepad, 0, ["ACE_MainActions", "Bw_IdZ_M_menu", "Bw_IdZ_M_support_menu", "Bw_IdZ_M_Spotter"]] call ace_interact_menu_fnc_removeActionFromObject;
 		[Notepad, 0, ["ACE_MainActions", "Bw_IdZ_M_menu", "Bw_IdZ_M_support_menu", "Bw_IdZ_M_Spotter_Ghillie"]] call ace_interact_menu_fnc_removeActionFromObject;
 
-_action = ["Zeus_AddLoadouts","Loadouts hinzufügen","",{_handle = execVM "Scripts\Zeus_AddLoadouts.sqf";},{true},{}, [0,0,0], 100] call ace_interact_menu_fnc_createAction;
+_action = ["Zeus_AddLoadouts","Loadouts hinzufügen","",{"Scripts\Zeus_AddLoadouts.sqf" remoteExec ["execVM",2];},{true},{}, [0,0,0], 100] call ace_interact_menu_fnc_createAction;
 [Zeus, 1, ["ACE_SelfActions", "Skripte"], _action] call ace_interact_menu_fnc_addActionToObject;
