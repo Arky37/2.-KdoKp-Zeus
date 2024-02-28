@@ -8,3 +8,5 @@ Mods
 - KAT: https://steamcommunity.com/workshop/filedetails/?id=2020940806
 - BWMod: https://steamcommunity.com/workshop/filedetails/?id=1200127537
 - je nach Version zusätzlich die Map
+
+Danke an [W] Fett_Li für das W-Teleporter Script
