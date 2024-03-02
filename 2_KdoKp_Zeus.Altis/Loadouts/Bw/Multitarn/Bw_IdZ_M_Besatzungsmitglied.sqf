@@ -50,7 +50,7 @@ player addItemToVest "BWA3_optic_NSV600";
 player addItemToVest "ACRE_PRC148";
 for "_i" from 1 to 4 do {player addItemToVest "BWA3_30Rnd_556x45_G36";};
 for "_i" from 1 to 2 do {player addItemToVest "BWA3_DM25";};
-player addHeadgear "BWA3_CrewmanKSK_Multi_Headset";
+player addHeadgear "BWA3_CrewmanKSK_Fleck_Headset";
 player addGoggles "BWA3_G_Combat_clear";
 
 comment "Add items";

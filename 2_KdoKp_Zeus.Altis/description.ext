@@ -13,9 +13,9 @@ class cfgFunctions
 
 author				= "Arkana";
 onLoadName			= "2. KdoKp - Zeus";
-onLoadMission		= "Version: 28.02.2024";
-overviewText		= "Version: 28.02.2024";
-overviewTextLocked	= "Version: 28.02.2024";
+onLoadMission		= "Version: 02.03.2024";
+overviewText		= "Version: 02.03.2024";
+overviewTextLocked	= "Version: 02.03.2024";
 overviewPicture		= "Bilder\Ladebild.jpg";
 loadScreen			= "Bilder\Ladebild.jpg";
 respawn = BASE;

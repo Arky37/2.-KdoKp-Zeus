@@ -66,7 +66,7 @@ player addItemToBackpack "ACE_Clacker";
 for "_i" from 1 to 4 do {player addItemToBackpack "BWA3_10Rnd_86x70_G29_Tracer";};
 for "_i" from 1 to 4 do {player addItemToBackpack "BWA3_10Rnd_86x70_G29";};
 for "_i" from 1 to 2 do {player addItemToBackpack "ClaymoreDirectionalMine_Remote_Mag";};
-player addHeadgear "BWA3_CrewmanKSK_Multi_Headset";
+player addHeadgear "BWA3_CrewmanKSK_Fleck_Headset";
 player addGoggles "BWA3_G_Combat_clear";
 
 comment "Add items";

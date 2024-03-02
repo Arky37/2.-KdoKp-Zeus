@@ -23,6 +23,7 @@ comment "Add weapons";
 player addWeapon "BWA3_G28";
 player addPrimaryWeaponItem "BWA3_acc_VarioRay_irlaser_black";
 player addPrimaryWeaponItem "BWA3_optic_PMII_DMR_MicroT1_rear";
+player addPrimaryWeaponItem "BWA3_bipod_Atlas";
 player addWeapon "BWA3_P8";
 player addHandgunItem "BWA3_acc_LLM01_irlaser";
 

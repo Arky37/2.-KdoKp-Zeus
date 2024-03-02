@@ -23,6 +23,7 @@ comment "Add weapons";
 player addWeapon "BWA3_G28";
 player addPrimaryWeaponItem "BWA3_acc_VarioRay_irlaser_black";
 player addPrimaryWeaponItem "BWA3_optic_PMII_DMR_MicroT1_rear";
+player addPrimaryWeaponItem "BWA3_bipod_Atlas";
 player addWeapon "BWA3_P8";
 player addHandgunItem "BWA3_acc_LLM01_irlaser";
 
@@ -63,7 +64,7 @@ for "_i" from 1 to 4 do {player addItemToVest "BWA3_10Rnd_762x51_G28_AP";};
 for "_i" from 1 to 4 do {player addItemToVest "BWA3_10Rnd_762x51_G28_Tracer";};
 for "_i" from 1 to 4 do {player addItemToBackpack "BWA3_10Rnd_762x51_G28_Tracer";};
 for "_i" from 1 to 8 do {player addItemToBackpack "BWA3_10Rnd_762x51_G28_AP";};
-player addHeadgear "BWA3_CrewmanKSK_Multi_Headset";
+player addHeadgear "BWA3_CrewmanKSK_Fleck_Headset";
 player addGoggles "BWA3_G_Combat_clear";
 
 comment "Add items";
